@@ -14,7 +14,7 @@ url: "http://openstack.github.io" # the base hostname & protocol for your site
 permalink: /:year/:month/:day/:title/
 
 # other links
-github_username:  openstacks
+github_username: openstacks
 email: 840814120@qq.com
 linkedIn_username: micro9229
 dribbble_username:
