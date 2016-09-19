@@ -7,7 +7,7 @@
 
 # Site settings
 title: Cloud
-brief-intro: Front-end Dev Engineer
+brief-intro: 云端散仙
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://openstack.github.io" # the base hostname & protocol for your site
 
