@@ -1,5 +1,13 @@
+---
+layout: post
+title:  "Network Namespace在Openstack中的应用"
+categories: Network
+tags:  network namespace openstack neutron dhcp
+---
 
-Network Namespace在Openstack中的应用 
+* content
+{:toc}
+
 ==============
 本文以DHCP为例，介绍了network namespace的基本原理，
 以及他在Openstack中的应用。
