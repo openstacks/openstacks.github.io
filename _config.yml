@@ -7,7 +7,7 @@
 
 # Site settings
 title: Cloud
-brief-intro: 云端散仙
+brief-intro: 云端散仙,且行且悟
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://openstacks.github.io" # the base hostname & protocol for your site
 
@@ -23,7 +23,7 @@ zhihu_username: micro9229
 linkedIn_username: clouds
 dribbble_username:
 
-description_footer: 万里长征！
+description_footer: 似水流年！
 
 # comments
 # two ways to comment, only choose one, and use your own short name
