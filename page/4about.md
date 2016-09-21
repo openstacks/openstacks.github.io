@@ -14,9 +14,9 @@ icon: heart
 
 主要精力集中在Openstack与SDN的集成，Openstack HA，性能测试与调优。
 
-热爱云计算，是Openstack测试项目tempest的代码贡献者：https://review.openstack.org/#/c/178546/
+热爱云计算，是Openstack测试项目tempest的代码贡献者：<https://review.openstack.org/#/c/178546/>
 
-热爱嵌入式开发，并著有：《ARM程序分析与设计》http://product.dangdang.com/20177318.html。
+热爱嵌入式开发，并著有：《ARM程序分析与设计》<http://product.dangdang.com/20177318.html>。
 
 的生活理念：不念过去，不迎未来，活在当下。
 
