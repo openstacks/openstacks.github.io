@@ -10,7 +10,7 @@ redcarpet:
 
 # Site settings
 title: Cloud
-brief-intro: 云端散仙,且行且悟
+brief-intro: 云端散仙且行且悟
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://openstacks.github.io" # the base hostname & protocol for your site
 
