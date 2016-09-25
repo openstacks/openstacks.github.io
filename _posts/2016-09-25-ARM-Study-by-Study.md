@@ -1,12 +1,13 @@
 ﻿---
 layout: post
-title: "跟我一步一步学ARM"
+title:  "跟我一步一步学习ARM开发"
 categories: ARM
-tags:  ARM C bootstrap
+tags:  ARM C IOT
 ---
 
 * content
 {:toc}
+
 
 本文从学习者的角度出发,分别描述了下面几部分内容:
  - ARM编程的基本知识
@@ -32,7 +33,8 @@ tags:  ARM C bootstrap
   - 出版书购:     
      京东：<http://item.jd.com/10116867.html>    
      易购: <http://www.egou.com/product/01_1080927.html>     
-   
+   ![](51HAvkjRIzL._AA190_.jpg)
+
 
 ### 目录
 
