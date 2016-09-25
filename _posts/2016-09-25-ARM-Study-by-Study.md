@@ -23,7 +23,8 @@ tags:  ARM C IOT
 
 
 
-###  电子书下载地址  
+###  资料的获取方式  
+
   - 直接阅读电子书：     
       {% include_relative test.html %}
   - 从baidu网盘下载：    
