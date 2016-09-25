@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title:  "跟我一步一步学ARM"
+title: "跟我一步一步学ARM"
 categories: ARM
 tags:  ARM C bootstrap
 ---
@@ -9,32 +9,29 @@ tags:  ARM C bootstrap
 {:toc}
 
 本文从学习者的角度出发,分别描述了下面几部分内容:
-- ARM编程的基本知识
-- BOOT代码流程和功能分析
-- OS中断程序的编写举例
-- BOOT代码的流程图  
+ - ARM编程的基本知识
+ - BOOT代码流程和功能分析
+ - OS中断程序的编写举例
+ - BOOT代码的流程图  
 
 希望这些内容能为初学ARM的朋友拨开迷雾,以最快的速度和最短的时间走进嵌入世界的大们。
 
 
 
-###  电子书下载地址  
-    
-   电子书pdf下载地址：
-   {% highlight html linenos %}
-   <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>电子书pdf下载地址：</title>
-    </head>
-    <body>
-     <a href="_data/StudyARMStepbyStep.pdf" target="_blank">Download</a>
-    </body>
-    </html>
-{% endhighlight %}
 
-http://pan.baidu.com/s/1o7IHvx4
-   出版书购买：<http://item.jd.com/10116867.html>
+
+
+
+
+###  电子书下载地址  
+  - 直接阅读电子书：     
+      {% include_relative test.html %}
+  - 从baidu网盘下载：    
+      <http://pan.baidu.com/s/1o7IHvx4>
+
+  - 出版书购:     
+     京东：<http://item.jd.com/10116867.html>    
+     易购: <http://www.egou.com/product/01_1080927.html>     
    
 
 ### 目录
