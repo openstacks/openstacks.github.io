@@ -23,7 +23,6 @@ tags:  ARM C IOT
 
 
 
-
 ###  电子书下载地址  
   - 直接阅读电子书：     
       {% include_relative test.html %}
@@ -32,8 +31,9 @@ tags:  ARM C IOT
 
   - 出版书购:     
      京东：<http://item.jd.com/10116867.html>    
-     易购: <http://www.egou.com/product/01_1080927.html>     
-   ![](51HAvkjRIzL._AA190_.jpg)
+     易购: <http://www.egou.com/product/01_1080927.html>  
+   
+   > > ![](/51HAvkjRIzL._AA190_.jpg)
 
 
 ### 目录
