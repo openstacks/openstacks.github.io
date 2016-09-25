@@ -1,14 +1,12 @@
-﻿---
+---
 layout: post
-title:  "跟我一步一步学习ARM开发"
+title:  "Study ARM step by step"
 categories: ARM
 tags:  ARM C IOT
 ---
 
 * content
 {:toc}
-
-
 本文从学习者的角度出发,分别描述了下面几部分内容:
  - ARM编程的基本知识
  - BOOT代码流程和功能分析
@@ -17,27 +15,29 @@ tags:  ARM C IOT
 
 希望这些内容能为初学ARM的朋友拨开迷雾,以最快的速度和最短的时间走进嵌入世界的大们。
 
-
-
-
-
-
-
-###  资料的获取方式  
+资料的获取方式  
 
   - 直接阅读电子书：     
       {% include_relative test.html %}
   - 从baidu网盘下载：    
       <http://pan.baidu.com/s/1o7IHvx4>
 
-  - 出版书购:     
+  - 网购:     
      京东：<http://item.jd.com/10116867.html>    
      易购: <http://www.egou.com/product/01_1080927.html>  
    
    > > ![](/51HAvkjRIzL._AA190_.jpg)
 
 
+
+
+
+
+
+
+
 ### 目录
+
 
 #### 第一章 ARM ABC
 
