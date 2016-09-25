@@ -1,4 +1,4 @@
----
+﻿---
 layout: post
 title:  "跟我一步一步学ARM"
 categories: ARM
@@ -20,7 +20,20 @@ tags:  ARM C bootstrap
 
 ###  电子书下载地址  
     
-   电子书pdf下载地址：   
+   电子书pdf下载地址：
+   {% highlight html linenos %}
+   <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>电子书pdf下载地址：</title>
+    </head>
+    <body>
+     <a href="_data/StudyARMStepbyStep.pdf" target="_blank">Download</a>
+    </body>
+    </html>
+{% endhighlight %}
+
+http://pan.baidu.com/s/1o7IHvx4
    出版书购买：<http://item.jd.com/10116867.html>
    
 
