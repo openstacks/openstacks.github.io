@@ -20,10 +20,12 @@ Swift文档中关于ring的描述：
 
 - ring用来确定数据驻留在集群中的位置。Account、container和单个object都有自己的ring。    
 
-- ring中的每个partition在集群中默认有3个replica。    
+- ring中的每个partition在集群中默认有3个replica。
+    
 >  如果数据在整个集群中只有一份，一旦发生故障就可能会造成数据的永久性丢失。因此，需要有冗余的副本来保证数据安全
 
-- ring使用zone的概念来保证数据的隔离。每个partition的replica都确保放在了不同的zone中。    
+- ring使用zone的概念来保证数据的隔离。每个partition的replica都确保放在了不同的zone中。 
+   
 >  一个zone可以是一个硬盘，一个服务器，一个机架，一个交换机，甚至是一个数据中心 
 
     
