@@ -83,7 +83,7 @@ a        0 1 2 3 4 5 6 7
  这是个整数值决定对对象的散列值右移多少位，从而决定分区索引号partition。    
  object最终会存储在一个文件系统的目录里，目录的构成如下图所示：
  
-  ![](/swift_folder.png)
+  ![](/assets/swift_folder.png)
  
 >  - 对象名称 account/container/object 作为键，使用 MD5 散列算法得到一个散列值    
 > - 对该散列值的前 4 个字节进行右移操作得到分区索引号partition  

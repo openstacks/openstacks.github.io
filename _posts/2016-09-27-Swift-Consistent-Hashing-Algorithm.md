@@ -37,7 +37,7 @@ tags:  Swift Consistent Hashing Algorithm
 -  Step 2: 每个对象名称account/container/object作为键，使用MD5散列算法得到一个散列值key，也将其分配到这个圆环上。
 -  Step 3: 从对象映射到的位置开始顺时针查找，将对象保存到找到的第一个节点上。
    
-   > > ![](/cons_hash.jpg)
+   > > ![](/assets/cons_hash.jpg)
    
  
 #### 虚拟节点
@@ -59,9 +59,9 @@ tags:  Swift Consistent Hashing Algorithm
       
    -  Step 5: 从对象映射到的位置开始顺时针查找，将对象保存到找到的第一个节点上。
    
-      > > ![](/ch2.png)
+      > > ![](/assets/ch2.png)
       
  
 #### 对象和存储节点的映射    
  加入虚拟节点后，一个实际的存储节点对应若干个虚拟的节点，对象和实际的存储节点的映射关系如下：对象——虚拟节点——设备，如下图所示：
-  > > ![](/vnode.JPG)
+  > > ![](/assets/vnode.JPG)

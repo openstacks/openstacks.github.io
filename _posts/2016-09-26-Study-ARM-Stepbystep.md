@@ -28,7 +28,7 @@ tags:  ARM C IOT
      京东：<http://item.jd.com/10116867.html>    
      易购: <http://www.egou.com/product/01_1080927.html>  
    
-   > > ![](/51HAvkjRIzL._AA190_.jpg)
+   > > ![](/assets/51HAvkjRIzL._AA190_.jpg)
 
 
 
