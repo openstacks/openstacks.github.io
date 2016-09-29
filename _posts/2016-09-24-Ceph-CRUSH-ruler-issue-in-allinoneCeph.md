@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "一个Host里面多个OSD的Crush Rule"
+title:  "OSD all in one 与他的Crush Rule"
 categories: Ceph
 tags:  Ceph CRUSH Storage
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "一致性hash算法"
+title:  "图解一致性hash算法"
 categories: Swift
 tags:  Swift Consistent Hashing Algorithm
 ---

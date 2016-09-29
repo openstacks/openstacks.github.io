@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Swift ring 原理"
+title:  "Swift ring 内幕"
 categories: Swift
 tags:  Swift Ring 
 ---
