@@ -117,7 +117,7 @@ public network = 10.0.2.0/24
 ####  准备osd设备
 第一步先进行分区和格式化，可用建三个分区sdb1,sdb2,sdb3，用来做osd设备。
 
-#####磁盘分区
+##### 磁盘分区
 
 ```
 root@sdnhubvm:/ceph[05:18]$ parted /dev/sdb
@@ -244,6 +244,7 @@ sdb                            8:16   0  60.9G  0 disk
 
  从输出结果可以看出，状态不OK，是HEALTH_WARN状态。而且PG状态是undersized+degraded+peered。
  在下一篇blog里会分析问题的根源和解决办法。
+
 ```
 [root@sdnhubvm ~]#docker exec -it mon ceph -s
 
