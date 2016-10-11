@@ -63,7 +63,9 @@ index.alauda.cn/georce/osd   hammer              7015d29d98a0        16 months a
          -e MON_IP=$MON_IP -v /etc/ceph:/etc/ceph index.alauda.cn/georce/mon:hammer
 
 ```
+
 #### 参数涵义：
+
  - 你可以配置如下选项：
  - MON_IP是运行Docker的主机IP
  - MON_NAME是你监测模块的名称（默认为$（hostname））
@@ -192,8 +194,11 @@ log      =internal log           bsize=4096   blocks=2560, version=2
          =                       sectsz=512   sunit=0 blks, lazy-count=1
 realtime =none                   extsz=4096   blocks=0, rtextents=0
 
+
 ````
+
 ##### 挂载目录
+
 
 ```
 root@sdnhubvm:/ceph[05:31]$ mkdir /ceph/osd0
