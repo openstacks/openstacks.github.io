@@ -37,7 +37,9 @@ icon: heart
 
 ## 友情链接
 
-[SDN](http://sdnhub.org/tutorials/) \| [Openstack](https://openstack.com) 
+[SDN](http://sdnhub.org/tutorials/) \| [Openstack](https://openstack.com)     
+
+[Linux performance](http://www.brendangregg.com/linuxperf.html)
 
 ## Comments
 
