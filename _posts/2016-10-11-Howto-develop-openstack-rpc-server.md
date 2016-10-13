@@ -16,9 +16,9 @@ tags:  Openstack RPC Service Manager
 
 ###  Openstack中的服务
 
-编程模式从面向过程，面向对象，演变为现在的面向服务。openstack模块提供两种服务：一种是Rest服务，提供Rest API；一种RPC服务，提供RPC API。    
+编程模式从面向过程，面向对象，演变为现在的面向服务。openstack模块提供两种服务：一个是Rest服务，提供Rest API；另一个是RPC服务，提供RPC API。    
 
-如下图所示，如果是跨项目的服务调用(如nova调用keystone)，使用rest api。如果是项目内不同模块之间的服务调用,则使用RPC API调用(如nova－conductor和nova-compute)。
+如下图所示，如果是跨项目的服务调用(如nova调用keystone)，使用rest api。如果是项目内不同模块之间的服务调用,则使用RPC API调用(如nova-conductor和nova-compute之间)。
 
   > ![](/assets/restrpc.png) 
 
@@ -35,7 +35,7 @@ openstack中的rest api实现有两个关键技术：wsgi和Paste Deployment。
  
    
  
-#### RPC API:
+#### RPC API
  
  RPC即Remote Procedure Call(远程方法调用)，是Openstack中一种用来实现跨进程(或者跨机器)的通信机制。    
  Openstack中同项目的各服务通过RPC实现彼此间通信。比如nova项目的nova-conductor和nova-compute之间就通过RPC进行通信。
