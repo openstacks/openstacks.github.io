@@ -73,7 +73,7 @@ def start_instance(self, context, instance):
 
 - 在compute/rpcapi.py 定义RPC client,里面定义可以远程调用的方法
 
-  每个服务会提供一个rpcapi.py文件，这个文件包含了调用本服务RPC api的client端代码。
+  每个服务会提供一个rpcapi.py文件，这个文件包含了其他模块可以远程调用的方法。其他模块可以import这个文件，然后直接调用里面定义的方法。
   
    {% highlight python %}
 def start_instance(self, ctxt, instance):
@@ -93,7 +93,7 @@ def start_instance(self, ctxt, instance):
 ####  如何远程调用PRC服务
 
   下面这个例子演示nova-conductor模块如何远程调用上面定义的方法：start_instance()    
-  在conductor中即引用rpcapi client:conductor/manager.py
+  在conductor(conductor/manager.py)中即引用rpcapi client，然后直接调用rpc方法。
   
   {% highlight python %}
    from nova.compute import rpcapi as compute_rpcapi
