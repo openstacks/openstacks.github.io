@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  "Network Namespace在Openstack中的应用"
 categories: Network
@@ -38,6 +38,7 @@ Linux Namespaces提供了一种隔离系统全局资源的方法,
 每个Namespace看上去就像一个单独的Linux系统,从而实现了系统的隔离(Isolating Your System with Linux Namespaces)。与hypervisor比较，这是一个轻量级的系统虚拟化解决方案。被openstack广泛使用，并且是docker的核心技术之一。
 
  > ![](/assets/ns2.png)
+
 #### Linux Network Namespace 
 
    Network namespace主要实现了网络资源的隔离，网络资源包括网络
