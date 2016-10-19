@@ -122,5 +122,8 @@ lmbench这个工具可以测试的指标如下所示，功能是比较强大的�
 - <http://www.latelee.org/using-gnu-linux/linux-memory-bandwidth-test-note.html>
 
  
+ 
+ 
+ 
   
   
