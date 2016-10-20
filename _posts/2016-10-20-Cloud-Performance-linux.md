@@ -81,15 +81,15 @@ $fio -ioengine=libaio -bs=4k -direct=1 -thread -rw=randwrite -size=1000G -filena
 -name="EBS 4K randwrite test" -iodepth=64 -runtime=60
 ```
 
-> fio的参数:
-- ioengine: 负载引擎，我们一般使用libaio，发起异步IO请求。
-- bs: IO大小
-- direct: 直写，绕过操作系统Cache。因为我们测试的是硬盘，而不是操作系统的Cache，所以设置为1。
-- rw: 读写模式，有顺序写write、顺序读read、随机写randwrite、随机读randread等。
-- size: 寻址空间，IO会落在 [0, size)这个区间的硬盘空间上。这是一个可以影响IOPS的参数。一般设置为硬盘的大小。
-- filename: 测试对象
-- iodepth: 队列深度，只有使用libaio时才有意义。这是一个可以影响IOPS的参数。
-- runtime: 测试时长
+> fio的参数:    
+- ioengine: 负载引擎，我们一般使用libaio，发起异步IO请求。    
+- bs: IO大小    
+- direct: 直写，绕过操作系统Cache。因为我们测试的是硬盘，而不是操作系统的Cache，所以设置为1。    
+- rw: 读写模式，有顺序写write、顺序读read、随机写randwrite、随机读randread等。    
+- size: 寻址空间，IO会落在 [0, size)这个区间的硬盘空间上。这是一个可以影响IOPS的参数。一般设置为硬盘的大小。    
+- filename: 测试对象    
+- iodepth: 队列深度，只有使用libaio时才有意义。这是一个可以影响IOPS的参数。    
+- runtime: 测试时长    
 
 
 ### Mem性能测试
