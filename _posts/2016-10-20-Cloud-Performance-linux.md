@@ -96,6 +96,23 @@ $fio -ioengine=libaio -bs=4k -direct=1 -thread -rw=randwrite -size=1000G -filena
 
 通过测试工具得到Mem的带宽和延时来评估Mem的性能。
 
+#### sysbench
+
+
+- sysbench will allocate a buffer (provided through the --memory-block-size parameter, defaults to 1kbyte)    
+- each execution will read or write to this memory (--memory-oper, defaults to write)     
+- in a random or sequential manner (--memory-access-mode, defaults to sequential).
+
+```
+$sysbench --test=memory --memory-block-size=1M --memory-total-size=10G run
+
+Operations performed: 10240 (10202.87 ops/sec)
+
+```
+
+
+#### lmbench 
+
 lmbench这个工具可以测试的指标如下所示，功能是比较强大的。通过lmbench来测试Mem的Bandwidth和latency。
 
 - Bandwidth benchmarks    
