@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "如何测试CPU，IO和Mem 的benchmark"
+title:  "如何测试CPU，IO和MEM的benchmark"
 categories: Performance 
-tags:  Performance linux benchmark 
+tags:  Performance linux benchmark fio sysbench dd hdparm lmbench
 ---
 
 * content
@@ -137,7 +137,8 @@ lmbench这个工具可以测试的指标如下所示，功能是比较强大的�
 
 - <https://www.ustack.com/blog/how-benchmark-ebs/>       
 - <http://www.latelee.org/using-gnu-linux/linux-memory-bandwidth-test-note.html>
-
+- <http://blog.siphos.be/2013/04/comparing-performance-with-sysbench-part-3/>
+- <http://m.blog.csdn.net/article/details?id=51567518>
  
  
  
