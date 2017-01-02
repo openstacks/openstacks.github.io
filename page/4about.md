@@ -18,14 +18,11 @@ icon: heart
 
 热爱嵌入式开发，并著有：《ARM程序分析与设计》<http://product.dangdang.com/20177318.html>。
 
-的生活理念：不念过去，不迎未来，活在当下。
+的生活理念：不畏过去，不迎未来，活在当下。
 
 工作理念：纸上得来终觉浅 绝知此事要躬行。Just Do It！
 
-* 2013.1.14 入职IBM Cloud Lab，测试Leader
-* 2004.11-2012.12 Innopath，负责性能和自动化测试
-* 2012.06-2014.10 亚信科技，负责计费系统测试
-* 2000.03-2012-06 字源科技，负责手机输入法的测试
+* 目前就职IBM Cloud Lab，测试Leader
 
 ## 联系我
 
@@ -33,7 +30,7 @@ icon: heart
 * email：840814120@qq.com
 * 微信： micro9229
 * 微信公众号： openstacks
-
+* Blog：cloudcome.net 
 
 ## 友情链接
 
