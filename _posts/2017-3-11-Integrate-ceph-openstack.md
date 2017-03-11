@@ -147,10 +147,10 @@ $ ceph-deploy install --cli openstack
 $ ceph-deploy config push openstack
 ```
 - 创建pool    
-给虚拟机的ephemeral disks创建一个ceph pool。
+给虚拟机的ephemeral disks创建一个ceph pool。   
 ```
-$ ceph osd pool create compute 128
-pool 'compute' created
+ $ ceph osd pool create compute 128
+ pool 'compute' created
 ```
  - 给nova创建一个ceph用户     
  给nova创建一个ceph用户，并赋予合适的权限。 
