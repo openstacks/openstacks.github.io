@@ -228,7 +228,7 @@ setlocale: No such file or directory
 
  ```  
  
- 5.  配置libvirt        
+- 配置nova        
  
  修改/etc/nova/nova.conf文件里的libvirt部分，增加ceph的连接信息。
  ```
