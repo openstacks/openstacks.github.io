@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "如何部署ceph集群"
+title:  "部署一个Ceph集群，并用他作为Openstack的后端存储"
 categories: Ceph
 tags:  Ceph cluster centos Storage
 ---
@@ -8,11 +8,7 @@ tags:  Ceph cluster centos Storage
 * content
 {:toc}
 
-本文介绍如何一步步在centos上部署ceph分布式存储集群。
-
-
-
-
+本文介绍如何一步步在centos上部署ceph分布式存储集群。然后用他做为Openstack的后端存储。 
 
 ### 部署环境
 
@@ -30,20 +26,16 @@ tags:  Ceph cluster centos Storage
         <td>deploy,mon*1,osd*3</td>
     </tr>
     <tr>
-        <td>ceph-node2</td>
+        <td>openstack</td>
         <td>192.168.1.102</td>
-        <td>mon*1,osd*3</td>
+        <td>Openstack ocata all-in-one</td>
     </tr>
     <tr>
-        <td>ceph-node3</td>
+        <td>test</td>
         <td>192.168.1.103</td>
-        <td>mon*1,osd*3</td>
+        <td>Openstack Test environment:Rally& Shark</td>
     </tr>
 </table>
-主机 	IP 	功能
-ceph-1 	192.168.57.222 	deploy、mon*1、osd*3
-ceph-2 	192.168.57.223 	mon*1、 osd*3
-ceph-3 	192.168.57.224 	mon*1 、osd*3
 
 ####  安装docker  
     
