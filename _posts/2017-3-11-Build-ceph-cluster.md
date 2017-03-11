@@ -20,7 +20,13 @@ tags:  Ceph cluster centos Storage
 
 <table>
     <tr>
-        <td>Foo</td>
+        <td>主机</td>
+    </tr>
+    <tr>
+        <td>IP</td>
+    </tr>
+    <tr>
+        <td>功能</td>
     </tr>
 </table>
 主机 	IP 	功能
