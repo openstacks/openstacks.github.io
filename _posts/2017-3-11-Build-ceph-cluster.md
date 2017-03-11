@@ -30,10 +30,14 @@ tags:  Ceph cluster centos Storage
         <td>deploy,mon*1,osd*3</td>
     </tr>
     <tr>
-        <td>IP</td>
+        <td>ceph-node2</td>
+        <td>192.168.1.102</td>
+        <td>mon*1,osd*3</td>
     </tr>
     <tr>
-        <td>功能</td>
+        <td>ceph-node3</td>
+        <td>192.168.1.103</td>
+        <td>mon*1,osd*3</td>
     </tr>
 </table>
 主机 	IP 	功能
