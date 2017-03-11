@@ -61,7 +61,6 @@ wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 sed -i '/aliyuncs/d' /etc/yum.repos.d/CentOS-Base.repo
 sed -i '/aliyuncs/d' /etc/yum.repos.d/epel.repo
 sed -i 's/$releasever/7/g' /etc/yum.repos.d/CentOS-Base.repo
-   
 ```
 
 - 准备ceph Jewel的源
@@ -77,7 +76,6 @@ gpgcheck=0
 name=cephnoarch
 baseurl=http://mirrors.163.com/ceph/rpm-jewel/el7/noarch/
 gpgcheck=0
-
 ```
 ```
 yum update -y
@@ -92,7 +90,6 @@ firewall-cmd --zone=public --add-port=6789/tcp --permanent
 firewall-cmd --zone=public --add-port=6800-7100/tcp --permanent
 firewall-cmd --reload
 firewall-cmd --zone=public --list-all
-
 ```
 
 ###### 禁用Selinux
@@ -107,7 +104,6 @@ setenforce 0
 yum install ntp ntpdate -y
 systemctl restart ntpdate.service ntpd.service
 systemctl enable ntpd.service ntpdate.service
-
 ```
 #### 在Ceph-node1上创建Ceph集群
 
@@ -165,7 +161,6 @@ pool 'compute' created
  [root@ceph ceph]# ceph auth get-or-create client.compute mon "allow r" osd "allow class-read object_prefix rbd_children, allow rwx pool=volumes, allow rwx pool=compute, allow rx pool=images"
 [client.compute]
 key = AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
-
  ```
  - 为用户添加秘钥，并修改秘钥文件的group和权限     
  客户端需要ceph秘钥去访问集群，Ceph 创建了一个默认用户client.admin. 他有足够的权限去访问ceph集群。不能把这个用户共享给其他     
@@ -212,20 +207,18 @@ On the hypervisor node, set the appropriate permissions for the keyring file:
  ```
 [root@openstack]# virsh secret-define --file ceph.xml
 Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
-```
+ ```
 
  4.  在virsh里设置好上一步生成的保密字符串
  
 ```
 [root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
 Secret value set
-
 [root@openstack]# virsh secret-list
 setlocale: No such file or directory
  UUID                                  Usage
 --------------------------------------------------------------------------------
  c1261b3e-eb93-49bc-aa13-557df63a6347  ceph client.compute secret
-
  ```  
  
 - 配置nova        
@@ -247,9 +240,9 @@ rbd_user=compute
  
 - 测试
  
- 新建一个vm，然后检查VM’s ephemeral disk是否健在ceph上。
+ 新建一个vm，然后检查VM’s ephemeral disk是否健在ceph上。   
  
- ```
+```
 [root@ceph ceph]# rbd -p compute ls
 24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk
 
@@ -263,7 +256,8 @@ features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
 flags:
 ```
  
- #### 参考文档
+ 
+#### 参考文档
 - <http://xuxiaopang.com/2016/10/09/ceph-quick-install-el7-jewel/>         
 - <http://www.stratoscale.com/blog/storage/integrating-ceph-storage-openstack-step-step-guide/> 
 - ceph cookbook
