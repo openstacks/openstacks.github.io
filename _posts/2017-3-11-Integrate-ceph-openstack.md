@@ -264,7 +264,7 @@ flags:
 ```
  
  #### 参考文档
-- [CEPH快速部署(Centos7+Jewel) ][http://xuxiaopang.com/2016/10/09/ceph-quick-install-el7-jewel/]     
+- [http://xuxiaopang.com/2016/10/09/ceph-quick-install-el7-jewel/] [CEPH快速部署(Centos7+Jewel) ]    
 - [Integrating Ceph Storage with OpenStack – A Step by Step Guide][http://www.stratoscale.com/blog/storage/integrating-ceph-storage-openstack-step-step-guide/]
 - [ceph cookbook][书籍] 
  
