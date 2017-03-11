@@ -21,8 +21,8 @@ tags:  Ceph cluster centos Storage
 <table>
     <tr>
         <td>ceph-node1</td>
-        <td>ceph-node2</td>
-        <td>ceph-node3</td>
+        <td>192.168.1.101</td>
+        <td>deploy,mon*1,osd*3</td>
     </tr>
     <tr>
         <td>IP</td>
