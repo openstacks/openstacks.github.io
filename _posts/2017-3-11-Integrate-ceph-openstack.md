@@ -41,7 +41,7 @@ tags:  Ceph cluster centos Storage
 #### 软件环境
 - 操作系统：Centos 7.3    
 - Openstack：Ocata    
-- Ceph准备：Jewel
+- Ceph：Jewel
 
 
 
