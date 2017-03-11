@@ -39,17 +39,17 @@ tags:  Ceph cluster centos Storage
 </table>
 
 #### 软件环境
--操作系统：Centos 7.3    
--Openstack：Ocata    
--Ceph准备：Jewel
+- 操作系统：Centos 7.3    
+- Openstack：Ocata    
+- Ceph准备：Jewel
 
 
 
 ####  安装Ceph  
 
-#### 准备Ceph安装环境
+##### 准备Ceph安装环境
 
-##### 准备repo
+###### 准备repo
     
   - 使用aliyun镜像，来加速安装过程。
      
@@ -83,7 +83,7 @@ gpgcheck=0
 yum update -y
 ```
 
-##### 启用Ceph monitor OSD端口
+###### 启用Ceph monitor OSD端口
 
 下面命令分别在三个ceph 节点上执行。
 
@@ -95,13 +95,13 @@ firewall-cmd --zone=public --list-all
 
 ```
 
-##### 禁用Selinux
+###### 禁用Selinux
 下面命令分别在三个ceph 节点上执行。
 ```
 setenforce 0
 ```
 
-##### 安装ntp
+###### 安装ntp
 下面命令分别在三个ceph 节点上执行。
 ```
 yum install ntp ntpdate -y
