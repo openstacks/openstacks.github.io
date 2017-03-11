@@ -138,3 +138,116 @@ ceph-deploy disk zap ceph-node1:sdb ceph-node1:sdc ceph-node1:sdd
 ceph-deploy osd create ceph-node1:sdb ceph-node1:sdc ceph-node1:sdd
 ceph -s
 ```
+#### 总结
+通过上面的步骤，一个all in one的ceph就成功部署了。可以通过下面的命令检查ceph的状态。·
+
+```
+ceph -s
+```
+#### 集成ceph与Openstack Nova
+- 安装ceph客户端
+集成ceph与Openstack的第一步就是要在openstack的节点上安装ceph客户端（一些ceph命令行工具和连接ceph集群需要的libraries)。
+```
+$ ceph-deploy install --cli openstack
+$ ceph-deploy config push openstack
+```
+- 创建pool
+给虚拟机的ephemeral disks创建一个ceph pool。
+
+```
+$ ceph osd pool create compute 128
+pool 'compute' created
+```
+ - 给nova创建一个ceph用户
+ 给nova创建一个ceph用户，并赋予合适的权限。
+ 
+ ```
+ [root@ceph ceph]# ceph auth get-or-create client.compute mon "allow r" osd "allow class-read object_prefix rbd_children, allow rwx pool=volumes, allow rwx pool=compute, allow rx pool=images"
+[client.compute]
+key = AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
+
+ ```
+ - 把用户的keyring文件copy到计算节点，并修改文件的group和权限
+ 
+ ```
+[root@ceph ceph]# ceph auth get-key client.compute | ssh openstack tee client.compute.key
+AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
+
+On the hypervisor node, set the appropriate permissions for the keyring file:
+[root@openstack ~(keystone_admin)]# chgrp nova /etc/ceph/ceph.client.compute.keyring
+[root@openstack ~(keystone_admin)]# chmod 0640 /etc/ceph/ceph.client.compute.keyring
+ ```
+ - 配置openstack节点的ceph.conf文件
+ 把keyring加到ceph.conf文件。
+ 
+ ```
+ vi /etc/ceph/ceph.conf
+ [client.compute]
+ keyring = /etc/ceph/ceph.client.compute.keyring
+ ```
+ - 集成cep和libvirt
+ * 生成一个uuid，用来集成ceph和libvirt。
+ ```
+ [root@openstack]# uuidgen
+  c1261b3e-eb93-49bc-aa13-557df63a6347
+ ```
+ * 配置libvirt
+ 修改/etc/nova/nova.conf文件里的libvirt部分，增加ceph的连接信息。
+ ```
+ [libvirt]
+images_rbd_pool=compute
+images_type=rbd
+rbd_secret_uuid=c1261b3e-eb93-49bc-aa13-557df63a6347
+rbd_user=compute
+ ```
+ - 为libvirt定义一个新的secret
+  *新建一个临时文件ceph.xml
+  ```
+<secret ephemeral="no" private="no">
+<uuid>c1261b3e-eb93-49bc-aa13-557df63a6347</uuid>
+<usage type="ceph">
+<name>client.compute secret</name>
+</usage>
+</secret>
+ ```
+ *定义secret
+ ```
+[root@openstack]# virsh secret-define --file ceph.xml
+Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
+
+[root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
+Secret value set
+
+[root@openstack]# virsh secret-list
+setlocale: No such file or directory
+ UUID                                  Usage
+--------------------------------------------------------------------------------
+ c1261b3e-eb93-49bc-aa13-557df63a6347  ceph client.compute secret
+
+ ```
+  *重启nova compute服务
+  
+  ```
+  [root@openstack]#systemctl restart openstack-nova-compute
+  ```
+ 
+ - 测试
+ 
+ 新建一个vm，然后检查VM’s ephemeral disk是否健在ceph上。
+ 
+ ```
+[root@ceph ceph]# rbd -p compute ls
+24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk
+
+[root@ceph ceph]# rbd -p compute info 24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk
+rbd image '24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk':
+size 1024 MB in 256 objects
+order 22 (4096 kB objects)
+block_name_prefix: rbd_data.fb042ae8944a
+format: 2
+features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
+flags:
+```
+ 
+ 
+ 
