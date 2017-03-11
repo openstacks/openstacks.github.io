@@ -263,5 +263,8 @@ features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
 flags:
 ```
  
- 
+ #### 参考文档
+- [CEPH快速部署(Centos7+Jewel) ][http://xuxiaopang.com/2016/10/09/ceph-quick-install-el7-jewel/]     
+- [Integrating Ceph Storage with OpenStack – A Step by Step Guide][http://www.stratoscale.com/blog/storage/integrating-ceph-storage-openstack-step-step-guide/]
+- [ceph cookbook][书籍] 
  
