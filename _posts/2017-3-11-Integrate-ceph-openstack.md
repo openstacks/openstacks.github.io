@@ -141,21 +141,19 @@ ceph -s
 ```
 #### 集成ceph与Openstack Nova   
 - 安装ceph客户端    
-集成ceph与Openstack的第一步就是要在openstack的节点上安装ceph客户端（一些ceph命令行工具和连接ceph集群需要的libraries)。
+集成ceph与Openstack的第一步就是要在openstack的节点上安装ceph客户端（一些ceph命令行工具和连接ceph集群需要的libraries)。 
 ```
 $ ceph-deploy install --cli openstack
 $ ceph-deploy config push openstack
 ```
 - 创建pool    
 给虚拟机的ephemeral disks创建一个ceph pool。
-
 ```
 $ ceph osd pool create compute 128
 pool 'compute' created
 ```
  - 给nova创建一个ceph用户     
- 给nova创建一个ceph用户，并赋予合适的权限。
- 
+ 给nova创建一个ceph用户，并赋予合适的权限。 
  ```
  [root@ceph ceph]# ceph auth get-or-create client.compute mon "allow r" osd "allow class-read object_prefix rbd_children, allow rwx pool=volumes, allow rwx pool=compute, allow rx pool=images"
 [client.compute]
@@ -163,8 +161,7 @@ key = AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  ```
  - 为用户添加秘钥，并修改秘钥文件的group和权限     
  客户端需要ceph秘钥去访问集群，Ceph 创建了一个默认用户client.admin,他有足够的权限去访问ceph集群。不能把这个用户共享给其他     
- 客户端。更好的做法是用分开的秘钥创建一个新的ceph用户去访问特定的pool。
- 
+ 客户端。更好的做法是用分开的秘钥创建一个新的ceph用户去访问特定的pool。 
  ```
 [root@ceph ceph]# ceph auth get-key client.compute | ssh openstack tee /etc/ceph/ceph.client.compute.keyring
 AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
