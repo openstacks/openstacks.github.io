@@ -20,6 +20,11 @@ tags:  Ceph cluster centos Storage
 
 <table>
     <tr>
+        <td>主机</td>
+        <td>IP</td>
+        <td>功能</td>
+    </tr>
+    <tr>
         <td>ceph-node1</td>
         <td>192.168.1.101</td>
         <td>deploy,mon*1,osd*3</td>
