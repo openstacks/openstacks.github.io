@@ -80,7 +80,7 @@ yum update -y
 
 ###### 启用Ceph monitor OSD端口
 
-下面命令分别在三个ceph 节点上执行。
+下面命令分别在三个ceph 节点上执行。    
 ```
 firewall-cmd --zone=public --add-port=6789/tcp --permanent
 firewall-cmd --zone=public --add-port=6800-7100/tcp --permanent
@@ -89,13 +89,13 @@ firewall-cmd --zone=public --list-all
 ```
 
 ###### 禁用Selinux
-下面命令分别在三个ceph 节点上执行。
+下面命令分别在三个ceph 节点上执行。    
 ```
 setenforce 0
 ```
 
 ###### 安装ntp
-下面命令分别在三个ceph 节点上执行。
+下面命令分别在三个ceph 节点上执行。    
 ```
 yum install ntp ntpdate -y
 systemctl restart ntpdate.service ntpd.service
@@ -103,7 +103,7 @@ systemctl enable ntpd.service ntpdate.service
 ```
 #### 在Ceph-node1上创建Ceph集群
 
-- 安装ceph-deploy
+- 安装ceph-deploy    
 ```
 yum install ceph-deploy -y
 ```
@@ -174,14 +174,14 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  - 集成ceph和libvirt   
  libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。步骤如下：  
  
-生成一个uuid
+ 生成一个uuid
  ```
  [root@openstack]# uuidgen
   c1261b3e-eb93-49bc-aa13-557df63a6347
  ```
 
 
-创建秘钥文件，并将uuid设置给他     
+ 创建秘钥文件，并将uuid设置给他     
   ```
 <secret ephemeral="no" private="no">
 <uuid>c1261b3e-eb93-49bc-aa13-557df63a6347</uuid>
@@ -197,7 +197,7 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
 Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
  ```
 
-在virsh里设置好上一步生成的保密字符串     
+ 在virsh里设置好上一步生成的保密字符串     
 ```
 [root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
 Secret value set
