@@ -205,13 +205,16 @@ On the hypervisor node, set the appropriate permissions for the keyring file:
 </usage>
 </secret>
  ```
-3. 定义秘钥文件，生成保密字符串
+ 
+ 3. 定义秘钥文件，生成保密字符串
+
  ```
 [root@openstack]# virsh secret-define --file ceph.xml
 Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
 ```
 
-4.  在virsh里设置好上一步生成的保密字符串
+ 4.  在virsh里设置好上一步生成的保密字符串
+ 
 ```
 [root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
 Secret value set
@@ -224,7 +227,7 @@ setlocale: No such file or directory
 
  ```
  
- 5. 配置libvirt    
+  5. 配置libvirt    
  修改/etc/nova/nova.conf文件里的libvirt部分，增加ceph的连接信息。
  ```
  [libvirt]
