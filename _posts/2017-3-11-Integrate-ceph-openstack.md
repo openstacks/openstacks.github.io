@@ -51,7 +51,7 @@ tags:  Ceph cluster centos Storage
 
 ##### 准备repo
     
-   使用aliyun镜像，来加速安装过程。
+  - 使用aliyun镜像，来加速安装过程。
      
 ```   
 yum clean all
@@ -64,7 +64,7 @@ sed -i 's/$releasever/7/g' /etc/yum.repos.d/CentOS-Base.repo
    
 ```
 
-准备ceph Jewel的源
+- 准备ceph Jewel的源
 
 ```
 #vi /etc/yum.repos.d/ceph.repo
