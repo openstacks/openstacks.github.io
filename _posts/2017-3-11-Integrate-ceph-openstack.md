@@ -12,7 +12,8 @@ tags:  Ceph cluster centos Storage
 
 ### 部署环境
 
-本文在一台VM上部署一个ceph monitor，用sdb的三个分区作为三个osd设备。
+#### 硬件环境
+包括五台VM，其中三台vm用了部署ceph集群；一台用来部署Openstack Ocata AIO，另外一台部署一个Openstack的测试环境。
 
 <table>
     <tr>
@@ -22,8 +23,8 @@ tags:  Ceph cluster centos Storage
     </tr>
     <tr>
         <td>ceph</td>
-        <td>192.168.1.101</td>
-        <td>deploy,mon*1,osd*3</td>
+        <td>192.168.1.101/104/105</td>
+        <td>deploy,mon*3,osd*9</td>
     </tr>
     <tr>
         <td>openstack</td>
@@ -37,17 +38,43 @@ tags:  Ceph cluster centos Storage
     </tr>
 </table>
 
-####  安装docker  
+#### 软件环境
+-操作系统：Centos 7.3
+-Openstack：Ocata
+-Ceph：Jewel
+
+
+
+####  安装Ceph  
     
-   使用daocloud的加速方案，安装docker。
+   使用aliyun镜像，来加速安装过程。
      
 ```   
-   [root@sdnhubvm ~]$curl -sSL https://get.daocloud.io/docker | sh
-   [root@sdnhubvm ~]$service docker start
+yum clean all
+rm -rf /etc/yum.repos.d/*.repo
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+sed -i '/aliyuncs/d' /etc/yum.repos.d/CentOS-Base.repo
+sed -i '/aliyuncs/d' /etc/yum.repos.d/epel.repo
+sed -i 's/$releasever/7/g' /etc/yum.repos.d/CentOS-Base.repo
    
 ```
-   
 
+准备ceph Jewel的源
+
+```
+#vi /etc/yum.repos.d/ceph.repo
+
+[ceph]
+name=ceph
+baseurl=http://mirrors.163.com/ceph/rpm-jewel/el7/x86_64/
+gpgcheck=0
+[ceph-noarch]
+name=cephnoarch
+baseurl=http://mirrors.163.com/ceph/rpm-jewel/el7/noarch/
+gpgcheck=0
+
+```
 ####  下载mon和osd docker镜像   
  执行下面命令，从灵雀云<index.alauda.cn>下载ceph monitor和ceph osd镜像到本地。
  
