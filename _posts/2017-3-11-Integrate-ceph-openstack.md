@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "部署一个Ceph集群，并用他作为Openstack的后端存储"
+title:  "Step by Step 部署Ceph集群，集成Openstack"
 categories: Ceph
 tags:  Ceph cluster centos Storage
 ---
