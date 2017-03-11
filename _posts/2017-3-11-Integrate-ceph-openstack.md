@@ -167,15 +167,16 @@ pool 'compute' created
 key = AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
 
  ```
- - 把用户的keyring文件copy到计算节点，并修改文件的group和权限     
- 
+ - 为用户添加秘钥，并修改秘钥文件的group和权限     
+ 客户端需要ceph秘钥去访问集群，Ceph 创建了一个默认用户client.admin. 他有足够的权限去访问ceph集群。不能把这个用户共享给其他     
+ 客户端。更好的做法是用分开的秘钥创建一个新的ceph用户去访问特定的pool。
  ```
-[root@ceph ceph]# ceph auth get-key client.compute | ssh openstack tee client.compute.key
+[root@ceph ceph]# ceph auth get-key client.compute | ssh openstack tee /etc/ceph/ceph.client.compute.keyring
 AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
 
 On the hypervisor node, set the appropriate permissions for the keyring file:
-[root@openstack ~(keystone_admin)]# chgrp nova /etc/ceph/ceph.client.compute.keyring
-[root@openstack ~(keystone_admin)]# chmod 0640 /etc/ceph/ceph.client.compute.keyring
+[root@openstack]# chgrp nova /etc/ceph/ceph.client.compute.keyring
+[root@openstack]# chmod 0640 /etc/ceph/ceph.client.compute.keyring
  ```
  - 配置openstack节点的ceph.conf文件     
  把keyring加到ceph.conf文件。
@@ -185,23 +186,16 @@ On the hypervisor node, set the appropriate permissions for the keyring file:
  [client.compute]
  keyring = /etc/ceph/ceph.client.compute.keyring
  ```
- - 集成cep和libvirt     
- * 生成一个uuid，用来集成ceph和libvirt。
+ - 集成ceph和libvirt   
+ libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。
+ * 生成一个uuid
  ```
  [root@openstack]# uuidgen
   c1261b3e-eb93-49bc-aa13-557df63a6347
  ```
- * 配置libvirt    
- 修改/etc/nova/nova.conf文件里的libvirt部分，增加ceph的连接信息。
- ```
- [libvirt]
-images_rbd_pool=compute
-images_type=rbd
-rbd_secret_uuid=c1261b3e-eb93-49bc-aa13-557df63a6347
-rbd_user=compute
- ```
- - 为libvirt定义一个新的secret     
-  *新建一个临时文件ceph.xml
+
+ * 创建秘钥文件，并将uuid设置给他     
+  
   ```
 <secret ephemeral="no" private="no">
 <uuid>c1261b3e-eb93-49bc-aa13-557df63a6347</uuid>
@@ -210,11 +204,14 @@ rbd_user=compute
 </usage>
 </secret>
  ```
- *定义secret
+ *定义秘钥文件，生成保密字符串
  ```
 [root@openstack]# virsh secret-define --file ceph.xml
 Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
+```
 
+* 在virsh里设置好上一步生成的保密字符串
+```
 [root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
 Secret value set
 
@@ -225,7 +222,17 @@ setlocale: No such file or directory
  c1261b3e-eb93-49bc-aa13-557df63a6347  ceph client.compute secret
 
  ```
-  *重启nova compute服务
+ * 配置libvirt    
+ 修改/etc/nova/nova.conf文件里的libvirt部分，增加ceph的连接信息。
+ ```
+ [libvirt]
+images_rbd_pool=compute
+images_type=rbd
+rbd_secret_uuid=c1261b3e-eb93-49bc-aa13-557df63a6347
+rbd_user=compute
+ ```
+ 
+* 重启nova compute服务
   
   ```
   [root@openstack]#systemctl restart openstack-nova-compute
