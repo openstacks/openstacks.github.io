@@ -21,7 +21,7 @@ tags:  Ceph cluster centos Storage
         <td>功能</td>
     </tr>
     <tr>
-        <td>ceph-node1</td>
+        <td>ceph</td>
         <td>192.168.1.101</td>
         <td>deploy,mon*1,osd*3</td>
     </tr>
