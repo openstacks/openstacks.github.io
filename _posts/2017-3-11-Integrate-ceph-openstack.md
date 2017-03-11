@@ -80,7 +80,7 @@ yum update -y
 
 ###### 启用Ceph monitor OSD端口
 
-下面命令分别在三个ceph 节点上执行。    
+下面命令分别在三个ceph 节点上执行。
 ```
 firewall-cmd --zone=public --add-port=6789/tcp --permanent
 firewall-cmd --zone=public --add-port=6800-7100/tcp --permanent
@@ -156,13 +156,12 @@ $ ceph-deploy config push openstack
 key = AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  ```
  - 为用户添加秘钥，并修改秘钥文件的group和权限     
- 客户端需要ceph秘钥去访问集群，Ceph 创建了一个默认用户client.admin,他有足够的权限去访问ceph集群。不能把这个用户共享给其他客户端。更好的做法是用分开的秘钥创建一个新的ceph用户去访问特定的pool。 
- 
+ 客户端需要ceph秘钥去访问集群，Ceph 创建了一个默认用户client.admin,他有足够的权限去访问ceph集群。不能把这个用户共享给其他客户端。更好的做法是用分开的秘钥创建一个新的ceph用户去访问特定的pool。  
  ```
 [root@ceph ceph]# ceph auth get-key client.compute | ssh openstack tee /etc/ceph/ceph.client.compute.keyring
 AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
 [root@openstack]# chgrp nova /etc/ceph/ceph.client.compute.keyring
-[root@]# chmod 0640 /etc/ceph/ceph.client.compute.keyring
+[root@openstack]# chmod 0640 /etc/ceph/ceph.client.compute.keyring
  ```
  
  - 配置openstack节点的ceph.conf文件     
@@ -175,14 +174,14 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  - 集成ceph和libvirt   
  libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。步骤如下：  
  
- 1. 生成一个uuid
+生成一个uuid
  ```
  [root@openstack]# uuidgen
   c1261b3e-eb93-49bc-aa13-557df63a6347
  ```
 
 
- 2. 创建秘钥文件，并将uuid设置给他     
+创建秘钥文件，并将uuid设置给他     
   ```
 <secret ephemeral="no" private="no">
 <uuid>c1261b3e-eb93-49bc-aa13-557df63a6347</uuid>
@@ -192,13 +191,13 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
 </secret>
  ```
  
-3. 定义秘钥文件，生成保密字符串
+ 定义秘钥文件，生成保密字符串
  ```
 [root@openstack]# virsh secret-define --file ceph.xml
 Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
  ```
 
-4. 在virsh里设置好上一步生成的保密字符串     
+在virsh里设置好上一步生成的保密字符串     
 ```
 [root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
 Secret value set
