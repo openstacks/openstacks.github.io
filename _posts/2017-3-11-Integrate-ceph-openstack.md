@@ -162,8 +162,9 @@ pool 'compute' created
 key = AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  ```
  - 为用户添加秘钥，并修改秘钥文件的group和权限     
- 客户端需要ceph秘钥去访问集群，Ceph 创建了一个默认用户client.admin. 他有足够的权限去访问ceph集群。不能把这个用户共享给其他     
+ 客户端需要ceph秘钥去访问集群，Ceph 创建了一个默认用户client.admin,他有足够的权限去访问ceph集群。不能把这个用户共享给其他     
  客户端。更好的做法是用分开的秘钥创建一个新的ceph用户去访问特定的pool。
+ 
  ```
 [root@ceph ceph]# ceph auth get-key client.compute | ssh openstack tee /etc/ceph/ceph.client.compute.keyring
 AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
@@ -172,6 +173,7 @@ On the hypervisor node, set the appropriate permissions for the keyring file:
 [root@openstack]# chgrp nova /etc/ceph/ceph.client.compute.keyring
 [root@openstack]# chmod 0640 /etc/ceph/ceph.client.compute.keyring
  ```
+ 
  - 配置openstack节点的ceph.conf文件     
  把keyring加到ceph.conf文件。
  
@@ -223,6 +225,7 @@ setlocale: No such file or directory
 - 配置nova        
  
  修改/etc/nova/nova.conf文件里的libvirt部分，增加ceph的连接信息。
+ 
  ```
  [libvirt]
 images_rbd_pool=compute
@@ -255,8 +258,8 @@ features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
 flags:
 ```
  
- 
-#### 参考文档
+### 参考文档 
+
 - <http://xuxiaopang.com/2016/10/09/ceph-quick-install-el7-jewel/>         
 - <http://www.stratoscale.com/blog/storage/integrating-ceph-storage-openstack-step-step-guide/> 
 - ceph cookbook
