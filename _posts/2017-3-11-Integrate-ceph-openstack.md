@@ -53,7 +53,7 @@ tags:  Ceph cluster centos Storage
     
 - 使用aliyun镜像，来加速安装过程。
      
-```   
+` 
 yum clean all
 rm -rf /etc/yum.repos.d/*.repo
 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
@@ -61,7 +61,7 @@ wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 sed -i '/aliyuncs/d' /etc/yum.repos.d/CentOS-Base.repo
 sed -i '/aliyuncs/d' /etc/yum.repos.d/epel.repo
 sed -i 's/$releasever/7/g' /etc/yum.repos.d/CentOS-Base.repo
-```
+`
 
 - 准备ceph Jewel的源
 
@@ -180,16 +180,16 @@ On the hypervisor node, set the appropriate permissions for the keyring file:
  keyring = /etc/ceph/ceph.client.compute.keyring
  ```
  - 集成ceph和libvirt   
- libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。步骤如下：       
- 
- 1. 生成一个uuid
+ libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。步骤如下：    
+ (1): 生成一个uuid
 
  ```
  [root@openstack]# uuidgen
   c1261b3e-eb93-49bc-aa13-557df63a6347
  ```
 
- 2. 创建秘钥文件，并将uuid设置给他     
+
+ (2):创建秘钥文件，并将uuid设置给他     
   
   ```
 <secret ephemeral="no" private="no">
@@ -200,14 +200,14 @@ On the hypervisor node, set the appropriate permissions for the keyring file:
 </secret>
  ```
  
- 3. 定义秘钥文件，生成保密字符串
+ (3): 定义秘钥文件，生成保密字符串
 
  ```
 [root@openstack]# virsh secret-define --file ceph.xml
 Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
  ```
 
- 4.  在virsh里设置好上一步生成的保密字符串
+ (4):在virsh里设置好上一步生成的保密字符串
  
 ```
 [root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
