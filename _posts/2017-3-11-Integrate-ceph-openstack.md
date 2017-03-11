@@ -144,21 +144,21 @@ ceph -s
 ```
 ceph -s
 ```
-#### 集成ceph与Openstack Nova
-- 安装ceph客户端
+#### 集成ceph与Openstack Nova   
+- 安装ceph客户端    
 集成ceph与Openstack的第一步就是要在openstack的节点上安装ceph客户端（一些ceph命令行工具和连接ceph集群需要的libraries)。
 ```
 $ ceph-deploy install --cli openstack
 $ ceph-deploy config push openstack
 ```
-- 创建pool
+- 创建pool    
 给虚拟机的ephemeral disks创建一个ceph pool。
 
 ```
 $ ceph osd pool create compute 128
 pool 'compute' created
 ```
- - 给nova创建一个ceph用户
+ - 给nova创建一个ceph用户     
  给nova创建一个ceph用户，并赋予合适的权限。
  
  ```
@@ -167,7 +167,7 @@ pool 'compute' created
 key = AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
 
  ```
- - 把用户的keyring文件copy到计算节点，并修改文件的group和权限
+ - 把用户的keyring文件copy到计算节点，并修改文件的group和权限     
  
  ```
 [root@ceph ceph]# ceph auth get-key client.compute | ssh openstack tee client.compute.key
@@ -177,7 +177,7 @@ On the hypervisor node, set the appropriate permissions for the keyring file:
 [root@openstack ~(keystone_admin)]# chgrp nova /etc/ceph/ceph.client.compute.keyring
 [root@openstack ~(keystone_admin)]# chmod 0640 /etc/ceph/ceph.client.compute.keyring
  ```
- - 配置openstack节点的ceph.conf文件
+ - 配置openstack节点的ceph.conf文件     
  把keyring加到ceph.conf文件。
  
  ```
@@ -185,13 +185,13 @@ On the hypervisor node, set the appropriate permissions for the keyring file:
  [client.compute]
  keyring = /etc/ceph/ceph.client.compute.keyring
  ```
- - 集成cep和libvirt
+ - 集成cep和libvirt     
  * 生成一个uuid，用来集成ceph和libvirt。
  ```
  [root@openstack]# uuidgen
   c1261b3e-eb93-49bc-aa13-557df63a6347
  ```
- * 配置libvirt
+ * 配置libvirt    
  修改/etc/nova/nova.conf文件里的libvirt部分，增加ceph的连接信息。
  ```
  [libvirt]
@@ -200,7 +200,7 @@ images_type=rbd
 rbd_secret_uuid=c1261b3e-eb93-49bc-aa13-557df63a6347
 rbd_user=compute
  ```
- - 为libvirt定义一个新的secret
+ - 为libvirt定义一个新的secret     
   *新建一个临时文件ceph.xml
   ```
 <secret ephemeral="no" private="no">
