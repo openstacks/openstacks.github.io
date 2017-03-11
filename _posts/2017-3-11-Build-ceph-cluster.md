@@ -18,6 +18,11 @@ tags:  Ceph cluster centos Storage
 
 本文在一台VM上部署一个ceph monitor，用sdb的三个分区作为三个osd设备。
 
+<table>
+    <tr>
+        <td>Foo</td>
+    </tr>
+</table>
 主机 	IP 	功能
 ceph-1 	192.168.57.222 	deploy、mon*1、osd*3
 ceph-2 	192.168.57.223 	mon*1、 osd*3
