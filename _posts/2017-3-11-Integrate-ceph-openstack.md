@@ -51,8 +51,7 @@ tags:  Ceph cluster centos Storage
 
 ###### 准备repo
     
-- 使用aliyun镜像，来加速安装过程。
-     
+- 使用aliyun镜像，来加速安装过程。         
 ```
 yum clean all
 rm -rf /etc/yum.repos.d/*.repo
@@ -63,8 +62,7 @@ sed -i '/aliyuncs/d' /etc/yum.repos.d/epel.repo
 sed -i 's/$releasever/7/g' /etc/yum.repos.d/CentOS-Base.repo
 ```
 
-- 准备ceph Jewel的源
-
+- 准备ceph Jewel的源    
 ```
 #vi /etc/yum.repos.d/ceph.repo
 [ceph]
@@ -82,8 +80,7 @@ yum update -y
 
 ###### 启用Ceph monitor OSD端口
 
-下面命令分别在三个ceph 节点上执行。
-
+下面命令分别在三个ceph 节点上执行。    
 ```
 firewall-cmd --zone=public --add-port=6789/tcp --permanent
 firewall-cmd --zone=public --add-port=6800-7100/tcp --permanent
@@ -134,8 +131,7 @@ ceph-deploy osd create ceph-node1:sdb ceph-node1:sdc ceph-node1:sdd
 ceph -s
 ```
 #### 总结
-通过上面的步骤，一个all in one的ceph就成功部署了。可以通过下面的命令检查ceph的状态。·
-
+通过上面的步骤，一个all in one的ceph就成功部署了。可以通过下面的命令检查ceph的状态。
 ```
 ceph -s
 ```
@@ -160,37 +156,35 @@ $ ceph-deploy config push openstack
 key = AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  ```
  - 为用户添加秘钥，并修改秘钥文件的group和权限     
- 客户端需要ceph秘钥去访问集群，Ceph 创建了一个默认用户client.admin,他有足够的权限去访问ceph集群。不能把这个用户共享给其他     
- 客户端。更好的做法是用分开的秘钥创建一个新的ceph用户去访问特定的pool。 
+ 客户端需要ceph秘钥去访问集群，Ceph 创建了一个默认用户client.admin,他有足够的权限去访问ceph集群。    
+ 不能把这个用户共享给其他客户端。更好的做法是用分开的秘钥创建一个新的ceph用户去访问特定的pool。 
  ```
 [root@ceph ceph]# ceph auth get-key client.compute | ssh openstack tee /etc/ceph/ceph.client.compute.keyring
 AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
 
 On the hypervisor node, set the appropriate permissions for the keyring file:
 [root@openstack]# chgrp nova /etc/ceph/ceph.client.compute.keyring
-[root@openstack]# chmod 0640 /etc/ceph/ceph.client.compute.keyring
+[root@]# chmod 0640 /etc/ceph/ceph.client.compute.keyring
  ```
  
  - 配置openstack节点的ceph.conf文件     
- 把keyring加到ceph.conf文件。
- 
+ 把keyring加到ceph.conf文件。 
  ```
  vi /etc/ceph/ceph.conf
  [client.compute]
  keyring = /etc/ceph/ceph.client.compute.keyring
  ```
  - 集成ceph和libvirt   
- libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。步骤如下：    
- (1): 生成一个uuid
-
+ libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。步骤如下：  
+ 
+ 1. 生成一个uuid
  ```
  [root@openstack]# uuidgen
   c1261b3e-eb93-49bc-aa13-557df63a6347
  ```
 
 
- (2):创建秘钥文件，并将uuid设置给他     
-  
+ 2. 创建秘钥文件，并将uuid设置给他     
   ```
 <secret ephemeral="no" private="no">
 <uuid>c1261b3e-eb93-49bc-aa13-557df63a6347</uuid>
@@ -200,15 +194,13 @@ On the hypervisor node, set the appropriate permissions for the keyring file:
 </secret>
  ```
  
- (3): 定义秘钥文件，生成保密字符串
-
+3. 定义秘钥文件，生成保密字符串
  ```
 [root@openstack]# virsh secret-define --file ceph.xml
 Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
  ```
 
- (4):在virsh里设置好上一步生成的保密字符串
- 
+4. 在virsh里设置好上一步生成的保密字符串     
 ```
 [root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
 Secret value set
@@ -221,8 +213,7 @@ setlocale: No such file or directory
  
 - 配置nova        
  
- 修改/etc/nova/nova.conf文件里的libvirt部分，增加ceph的连接信息。
- 
+ 修改/etc/nova/nova.conf文件里的libvirt部分，增加ceph的连接信息。     
  ```
  [libvirt]
 images_rbd_pool=compute
@@ -231,16 +222,14 @@ rbd_secret_uuid=c1261b3e-eb93-49bc-aa13-557df63a6347
 rbd_user=compute
  ```
  
-- 重启nova compute服务
-  
+- 重启nova compute服务      
   ```
   [root@openstack]#systemctl restart openstack-nova-compute
   ```
  
 - 测试
  
- 新建一个vm，然后检查VM’s ephemeral disk是否健在ceph上。   
- 
+ 新建一个vm，然后检查VM’s ephemeral disk是否健在ceph上。      
 ```
 [root@ceph ceph]# rbd -p compute ls
 24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk
