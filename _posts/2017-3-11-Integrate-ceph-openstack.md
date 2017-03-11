@@ -156,13 +156,11 @@ $ ceph-deploy config push openstack
 key = AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  ```
  - 为用户添加秘钥，并修改秘钥文件的group和权限     
- 客户端需要ceph秘钥去访问集群，Ceph 创建了一个默认用户client.admin,他有足够的权限去访问ceph集群。    
- 不能把这个用户共享给其他客户端。更好的做法是用分开的秘钥创建一个新的ceph用户去访问特定的pool。 
+ 客户端需要ceph秘钥去访问集群，Ceph 创建了一个默认用户client.admin,他有足够的权限去访问ceph集群。不能把这个用户共享给其他客户端。更好的做法是用分开的秘钥创建一个新的ceph用户去访问特定的pool。 
+ 
  ```
 [root@ceph ceph]# ceph auth get-key client.compute | ssh openstack tee /etc/ceph/ceph.client.compute.keyring
 AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
-
-On the hypervisor node, set the appropriate permissions for the keyring file:
 [root@openstack]# chgrp nova /etc/ceph/ceph.client.compute.keyring
 [root@]# chmod 0640 /etc/ceph/ceph.client.compute.keyring
  ```
