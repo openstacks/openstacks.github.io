@@ -171,7 +171,7 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  keyring = /etc/ceph/ceph.client.compute.keyring
  ```
  - 集成ceph和libvirt   
- libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。：  
+ libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。
  
 > 生成一个uuid
  ```
