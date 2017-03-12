@@ -62,7 +62,7 @@ sed -i '/aliyuncs/d' /etc/yum.repos.d/epel.repo
 sed -i 's/$releasever/7/g' /etc/yum.repos.d/CentOS-Base.repo
 ```
 
-- 准备ceph Jewel的源    
+- 准备ceph Jewel的源     
 ```
 #vi /etc/yum.repos.d/ceph.repo
 [ceph]
@@ -79,9 +79,7 @@ yum update -y
 ```
 
 ###### 操作系统配置
-- 启用Ceph monitor OSD端口
-
-
+- 启用Ceph monitor OSD端口    
 ```
 firewall-cmd --zone=public --add-port=6789/tcp --permanent
 firewall-cmd --zone=public --add-port=6800-7100/tcp --permanent
@@ -89,14 +87,12 @@ firewall-cmd --reload
 firewall-cmd --zone=public --list-all
 ```
 
-- 禁用Selinux
-    
+- 禁用Selinux    
 ```
 setenforce 0
 ```
 
-- 安装ntp
-   
+- 安装ntp   
 ```
 yum install ntp ntpdate -y
 systemctl restart ntpdate.service ntpd.service
