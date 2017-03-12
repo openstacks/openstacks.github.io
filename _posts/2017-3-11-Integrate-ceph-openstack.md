@@ -222,8 +222,7 @@ rbd_user=compute
  
 - 测试
  
-  新建一个vm，然后检查VM’s ephemeral disk是否健在ceph上。 
-  
+  新建一个vm，然后检查VM’s ephemeral disk是否健在ceph上。
    ```
   [root@ceph ceph]# rbd -p compute ls
   24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk
@@ -233,7 +232,7 @@ rbd_user=compute
   size 1024 MB in 256 objects
   order 22 (4096 kB objects)
 
-  ```
+   ```
 
 #### 参考文档 
 
