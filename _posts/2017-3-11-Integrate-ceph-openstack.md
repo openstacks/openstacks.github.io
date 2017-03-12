@@ -173,14 +173,14 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  - 集成ceph和libvirt   
  libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。
  
-> 生成一个uuid
+ > 生成一个uuid
    ```
  [root@openstack]# uuidgen
   c1261b3e-eb93-49bc-aa13-557df63a6347
    ```
 
 
-> 创建秘钥文件,设置uuid    
+ > 创建秘钥文件,设置uuid    
 ```
 <secret ephemeral="no" private="no">
 <uuid>c1261b3e-eb93-49bc-aa13-557df63a6347</uuid>
@@ -190,13 +190,13 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
 </secret>
 ```
  
-> 定义秘钥文件，生成保密字符串    
+ > 定义秘钥文件，生成保密字符串    
  ```
 [root@openstack]# virsh secret-define --file ceph.xml
 Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
  ```
 
-> 在virsh里设置好上一步生成的保密字符串  
+ > 在virsh里设置好上一步生成的保密字符串  
 ```
 [root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
 Secret value set
