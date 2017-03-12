@@ -193,7 +193,7 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
    Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
    ```
 
- 在virsh里设置好上一步生成的保密字符串
+  在virsh里设置好上一步生成的保密字符串
   ```
    [root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
    Secret value set
