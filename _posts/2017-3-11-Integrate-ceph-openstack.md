@@ -148,7 +148,7 @@ $ ceph-deploy config push openstack
  pool 'compute' created
 ```
  - 给nova创建一个ceph用户     
- 给nova创建一个ceph用户，并赋予合适的权限。        
+ ceph get-or-create 会产生一个用户名和一个秘钥，并将它们保存在ceph monitor上。下面命令给nova创建一个用户和秘钥，并赋予合适的权限。        
  ```
  [root@ceph ceph]# ceph auth get-or-create client.compute mon "allow r" osd "allow class-read object_prefix rbd_children, allow rwx pool=volumes, allow rwx pool=compute, allow rx pool=images"
 [client.compute]
