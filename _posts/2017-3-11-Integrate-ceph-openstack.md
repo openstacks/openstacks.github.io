@@ -188,8 +188,8 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
    </usage>
    </secret>
   ```
- 
- > 定义秘钥文件，生成保密字符串
+  
+> 定义秘钥文件，生成保密字符串
    ```
    [root@openstack]# virsh secret-define --file ceph.xml
    Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
