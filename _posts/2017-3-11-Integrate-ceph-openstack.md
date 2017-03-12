@@ -178,7 +178,7 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
   [root@openstack]# uuidgen
   c1261b3e-eb93-49bc-aa13-557df63a6347
     ```
-  > 创建秘钥文件,设置uuid
+   创建秘钥文件,设置uuid
      ```
    <secret ephemeral="no" private="no">
    <uuid>c1261b3e-eb93-49bc-aa13-557df63a6347</uuid>
@@ -222,19 +222,17 @@ rbd_user=compute
  
 - 测试
  
-  新建一个vm，然后检查VM’s ephemeral disk是否健在ceph上。      
-  ```
-[root@ceph ceph]# rbd -p compute ls
-24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk
+  新建一个vm，然后检查VM’s ephemeral disk是否健在ceph上。 
+  
+   ```
+  [root@ceph ceph]# rbd -p compute ls
+  24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk
 
-[root@ceph ceph]# rbd -p compute info 24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk
-rbd image '24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk':
-size 1024 MB in 256 objects
-order 22 (4096 kB objects)
-block_name_prefix: rbd_data.fb042ae8944a
-format: 2
-features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
-flags:
+  [root@ceph ceph]# rbd -p compute info 24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk
+  rbd image '24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk':
+  size 1024 MB in 256 objects
+  order 22 (4096 kB objects)
+
   ```
 
 #### 参考文档 
