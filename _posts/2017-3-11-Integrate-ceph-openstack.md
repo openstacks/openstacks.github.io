@@ -171,8 +171,8 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  keyring = /etc/ceph/ceph.client.compute.keyring
  ```
  - 集成ceph和libvirt   
- libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。步骤如下：  
- 
+ libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。：  
+ <
  生成一个uuid
  ```
  [root@openstack]# uuidgen
@@ -206,6 +206,7 @@ setlocale: No such file or directory
 --------------------------------------------------------------------------------
  c1261b3e-eb93-49bc-aa13-557df63a6347  ceph client.compute secret
  ```  
+ >
  
 - 配置nova        
  
