@@ -240,7 +240,8 @@ format: 2
 features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
 flags:
 ```
- ### 参考文档 
+
+#### 参考文档 
 
 - <http://xuxiaopang.com/2016/10/09/ceph-quick-install-el7-jewel/>         
 - <http://www.stratoscale.com/blog/storage/integrating-ceph-storage-openstack-step-step-guide/> 
