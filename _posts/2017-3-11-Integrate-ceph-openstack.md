@@ -178,9 +178,7 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  [root@openstack]# uuidgen
   c1261b3e-eb93-49bc-aa13-557df63a6347
    ```
-
-
- > 创建秘钥文件,设置uuid    
+> 创建秘钥文件,设置uuid    
   ```
 <secret ephemeral="no" private="no">
 <uuid>c1261b3e-eb93-49bc-aa13-557df63a6347</uuid>
