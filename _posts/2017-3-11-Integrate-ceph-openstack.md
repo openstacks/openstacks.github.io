@@ -201,7 +201,6 @@ Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
 [root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
 Secret value set
 [root@openstack]# virsh secret-list
-setlocale: No such file or directory
  UUID                                  Usage
 --------------------------------------------------------------------------------
  c1261b3e-eb93-49bc-aa13-557df63a6347  ceph client.compute secret
