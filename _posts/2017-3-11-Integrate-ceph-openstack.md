@@ -112,7 +112,7 @@ ceph-deploy new ceph-node1
 ```
 - 安装ceph二进制软件包
 ```
-ceph-deploy install ceph-node1 ceph-node2 ceph-node3
+ceph-deploy install ceph-node1
 ceph -v
 ```
 - 在ceph-node1上创建第一个ceph monitor
