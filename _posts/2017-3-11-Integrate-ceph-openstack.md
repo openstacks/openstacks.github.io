@@ -171,7 +171,7 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  keyring = /etc/ceph/ceph.client.compute.keyring
    ```
  - 集成ceph和libvirt   
- libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。
+   libvirt进程需要有访问ceph集群的权限。需要生成一个uuid，然后创建，定义和设置秘钥给libvirt。
  
    生成一个uuid
     ```
@@ -206,23 +206,23 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  
 - 配置nova        
  
- 修改/etc/nova/nova.conf文件里的libvirt部分，增加ceph的连接信息。     
- ```
+   修改/etc/nova/nova.conf文件里的libvirt部分，增加ceph的连接信息。     
+   ```
  [libvirt]
 images_rbd_pool=compute
 images_type=rbd
 rbd_secret_uuid=c1261b3e-eb93-49bc-aa13-557df63a6347
 rbd_user=compute
- ```
+   ```
  
 - 重启nova compute服务      
-  ```
+   ```
   [root@openstack]#systemctl restart openstack-nova-compute
-  ```
+   ```
  
 - 测试
  
- 新建一个vm，然后检查VM’s ephemeral disk是否健在ceph上。      
+  新建一个vm，然后检查VM’s ephemeral disk是否健在ceph上。      
   ```
 [root@ceph ceph]# rbd -p compute ls
 24e6ca7f-05c8-411b-b23d-6e5ee1c809f9_disk
