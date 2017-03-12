@@ -175,33 +175,33 @@ AQBLHcJYm1XxBBAA75foQeQ72bT3GsGVDzBZcg==
  
  > 生成一个uuid
    ```
- [root@openstack]# uuidgen
+  [root@openstack]# uuidgen
   c1261b3e-eb93-49bc-aa13-557df63a6347
    ```
  > 创建秘钥文件,设置uuid
   ```
-<secret ephemeral="no" private="no">
-<uuid>c1261b3e-eb93-49bc-aa13-557df63a6347</uuid>
-<usage type="ceph">
-<name>client.compute secret</name>
-</usage>
-</secret>
+   <secret ephemeral="no" private="no">
+   <uuid>c1261b3e-eb93-49bc-aa13-557df63a6347</uuid>
+   <usage type="ceph">
+   <name>client.compute secret</name>
+   </usage>
+   </secret>
   ```
  
  > 定义秘钥文件，生成保密字符串
    ```
-[root@openstack]# virsh secret-define --file ceph.xml
-Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
+   [root@openstack]# virsh secret-define --file ceph.xml
+   Secret c1261b3e-eb93-49bc-aa13-557df63a6347 created
    ```
 
  > 在virsh里设置好上一步生成的保密字符串
   ```
-[root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
-Secret value set
-[root@openstack]# virsh secret-list
- UUID                                  Usage
---------------------------------------------------------------------------------
- c1261b3e-eb93-49bc-aa13-557df63a6347  ceph client.compute secret
+   [root@openstack]# virsh secret-set-value --secret c1261b3e-eb93-49bc-aa13-557df63a6347  --base64 $(cat client.compute.key)
+   Secret value set
+   [root@openstack]# virsh secret-list
+    UUID                                  Usage
+   --------------------------------------------------------------------------------
+    c1261b3e-eb93-49bc-aa13-557df63a6347  ceph client.compute secret
    ```  
 
  
