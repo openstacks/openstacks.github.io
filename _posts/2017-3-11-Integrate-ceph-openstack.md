@@ -98,7 +98,7 @@ yum install ntp ntpdate -y
 systemctl restart ntpdate.service ntpd.service
 systemctl enable ntpd.service ntpdate.service
 ```
-#### 在Ceph-node1上创建Ceph集群
+#### 创建Ceph集群
 
 - 安装ceph-deploy    
 ```
