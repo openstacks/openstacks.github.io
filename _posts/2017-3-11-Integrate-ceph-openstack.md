@@ -132,7 +132,9 @@ ceph-deploy osd create ceph-node1:sdb ceph-node1:sdc ceph-node1:sdd
 ceph -s
 ```
 #### 总结
-通过上面的步骤，一个all in one的ceph就成功部署了。可以通过下面的命令检查ceph的状态。
+通过上面的步骤，一个all in one的ceph就成功部署了。
+
+- 检查ceph的状态。
 ```
 ceph -s
 ```
