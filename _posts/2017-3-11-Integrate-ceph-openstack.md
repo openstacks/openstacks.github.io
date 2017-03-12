@@ -148,7 +148,7 @@ $ ceph-deploy config push openstack
  pool 'compute' created
 ```
  - 给nova创建一个ceph用户     
- 给nova创建一个ceph用户，并赋予合适的权限。 
+ 给nova创建一个ceph用户，并赋予合适的权限。        
  ```
  [root@ceph ceph]# ceph auth get-or-create client.compute mon "allow r" osd "allow class-read object_prefix rbd_children, allow rwx pool=volumes, allow rwx pool=compute, allow rx pool=images"
 [client.compute]
