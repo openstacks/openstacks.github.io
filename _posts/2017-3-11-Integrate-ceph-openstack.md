@@ -116,7 +116,7 @@ ceph-deploy new ceph-node1
 ceph-deploy install --no-adjust-repos ceph-node1
 ceph -v
 ```
-- 安装ceph二进制软件包
+- 修改ceph 配置文件
 ```
 [global]
 fsid = 7bac6963-0e1d-4cea-9e2e-f02bbae96ba7
@@ -126,6 +126,9 @@ auth_cluster_required = cephx
 auth_service_required = cephx
 auth_client_required = cephx
 public network = 192.168.1.0/24
+osd pool default pg num = 8
+osd pool default pgp num = 8
+osd pool default size = 1
 ```
 - 在ceph-node1上创建第一个ceph monitor
 ```
