@@ -95,7 +95,8 @@ setenforce 0
 - 安装ntp   
 ```
 yum install ntp ntpdate -y
-systemctl restart ntpdate.service ntpd.service
+systemctl restart ntpdate.service 
+systemctl restart ntpd.service
 systemctl enable ntpd.service ntpdate.service
 ```
 ##### 创建Ceph集群
@@ -112,7 +113,7 @@ ceph-deploy new ceph-node1
 ```
 - 安装ceph二进制软件包
 ```
-ceph-deploy install ceph-node1
+ceph-deploy install --no-adjust-repos ceph-node1
 ceph -v
 ```
 - 在ceph-node1上创建第一个ceph monitor
