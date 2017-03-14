@@ -116,6 +116,17 @@ ceph-deploy new ceph-node1
 ceph-deploy install --no-adjust-repos ceph-node1
 ceph -v
 ```
+- 安装ceph二进制软件包
+```
+[global]
+fsid = 7bac6963-0e1d-4cea-9e2e-f02bbae96ba7
+mon_initial_members = ceph-node1
+mon_host = 192.168.1.101
+auth_cluster_required = cephx
+auth_service_required = cephx
+auth_client_required = cephx
+public network = 192.168.1.0/24
+```
 - 在ceph-node1上创建第一个ceph monitor
 ```
 ceph-deploy mon create-initial
