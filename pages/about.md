@@ -1,62 +1,43 @@
 ---
 layout: page
 title: About
-description: Nothing is impossible to a willing heart!
-keywords: 漠然, mritd
-comments: true
-menu: 关于
 permalink: /about/
+icon: heart
 ---
 
-### 0x1 序
+* content
+{:toc}
 
-> **是时间消磨了青春的倔强，还是岁月摧残了年轻的梦想？**
->
-> **我愿留守心中的那抹执着，吟唱生命中的那首不悔战歌！**
+## 关于我
 
-### 0x2 工作状况
+就职于IBM 云计算事业部，负责IaaS的设计，部署，测试和运维。
 
-> **Java Web Developer 1枚，目前就职龙贷；主要负责后端开发，前端基本不碰......**
-> **热爱 Devops，对新技术充满好奇心 :)......**
+主要精力集中在Openstack与SDN的集成，Openstack HA，性能测试与调优。
 
-### 0x3 职业技能
+热爱云计算，是Openstack测试项目tempest的代码贡献者：<https://review.openstack.org/#/c/178546/>
 
-> **SSH/SSM (Struts2 or Spring MVC)、SpringBoot、Quartz、Shiro**
->
-> **Oracle、mysql、SQL Server、Redis**
->
-> **HTML、js、jQuery**
->
-> **Others: Linux、Docker、Kubernetes**
+热爱嵌入式开发，并著有：《ARM程序分析与设计》<http://product.dangdang.com/20177318.html>。
 
-### 0x4 学习计划
+的生活理念：不畏过去，不迎未来，活在当下。
 
-> **Java底层 学习中**
->  
-> **Java数据结构 刚接触**
-> 
-> **Java设计模式 学习中**
->
-> **Redis 学习中**
->
-> **Docker Swarm 准备尝试**
->
-> **bash脚本 学习中**
->
-> **Golang or python 准备尝试**
+工作理念：纸上得来终觉浅 绝知此事要躬行。Just Do It！
 
-### 0x5 See You Again
+* 目前就职IBM Cloud Lab，测试Leader
 
-See You Again
+## 联系我
 
----
+* GitHub：[Yuxingwang](https://github.com/openstacks)
+* email：840814120@qq.com
+* 微信： micro9229
+* 微信公众号： openstacks
+* Blog：cloudcome.net 
 
-![hexo_about_me_logo](https://mritd.b0.upaiyun.com/markdown/hexo_about_me_logo.jpg)
+## 友情链接
 
----
+[SDN](http://sdnhub.org/tutorials/) \| [Openstack](https://openstack.com)     
 
-<audio  autoplay="autoplay">
-  <source src="https://mritd.b0.upaiyun.com/markdown/music_see_you_again.mp3" type="audio/mpeg" />
-Your browser does not support the audio element.
-</audio>
+[Linux performance](http://www.brendangregg.com/linuxperf.html)
 
+## Comments
+
+{% include comments.html %}

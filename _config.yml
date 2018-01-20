@@ -1,26 +1,26 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-title: 漠然
-author: 漠然
-subtitle: "Nothing is impossible to a willing heart!"
-description: "十字路口,繁华街头......"
-keywords: 漠然
-url: "https://mritd.me"
+title: 云端散仙且行切悟
+author: yuxing
+subtitle: "You never fail, until you give up!"
+description: "似水流年！......"
+keywords: cloudcome
+url: "https://openstacks.github.io"
 date_format: "ordinal"
 favicon: /favicon.ico
-timezone: Asia/Shanghai
+timezone: Asia/beijin
 encoding: "utf-8"
-source_code: https://github.com/mritd/mritd.github.io
+source_code: https://github.com/openstacks/openstacks.github.io
 side_bar_repo_limit: 5
 
 # ---------------- #
 #      Author      #
 # ---------------- #
-organization: Gozap, Inc.
-organization_url: https://www.longdai.com
+#organization: IBM, Inc.
+organization_url: https://openstacks.github.io
 location: Beijing, China
-email: mritd1234@gmail.com
+email: 840814120@qq.com
 
 # ---------------- #
 #    Navigation    #
@@ -86,12 +86,12 @@ collections:
 # ---------------- #
 #      Socials     #
 # ---------------- #
-github_username: mritd
-#douban_username: mritd
-facebook_username: mritd1234
-#weibo_username: mritd
-#zhihu_username: mritd
-twitter_username: mritd
+github_username: openstacks
+#douban_username: 
+#facebook_username: 
+#weibo_username: openstacks
+#zhihu_username: openstacks
+#twitter_username: openstacks
 
 # ---------------- #
 #      Comments    #
@@ -100,13 +100,14 @@ twitter_username: mritd
 comments_provider: disqus
 # !!!重要!!! 请修改下面两个用户名为你自己申请的
 # !!!Important!!! Please modify usernames below to yours
-disqus_username: mritd
+disqus_username: openstacks
 
 # ---------------- #
 #    Analytics     #
 # ---------------- #
 google:
-    analytics_id: UA-82387173-1
+    analytics_id: UA-72449510-4
+#baidu_tongji_id: cf8506e0ef223e57ff6239944e5d46a4
 
 # ---------------- #
 #      Datas       #
@@ -118,4 +119,4 @@ skill_mobile_app_keywords: [Java]
 # ---------------- #
 # Github metadata  #
 # ---------------- #
-repository: mritd/mritd.github.io
+repository: openstacks/openstacks.github.io
