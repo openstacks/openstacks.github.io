@@ -23,7 +23,7 @@ permalink: /about/
 
 工作理念：纸上得来终觉浅 绝知此事要躬行。Just Do It！
 
-* 目前就职IBM Cloud Lab，测试Leader
+目前就职IBM Cloud Lab，测试Leader
 
 ## 联系我
 
