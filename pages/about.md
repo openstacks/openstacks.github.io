@@ -1,12 +1,13 @@
 ---
 layout: page
 title: About
+description: You never fail,until you give up!
+keywords: cloudcome, openstacks
+comments: true
+menu: 关于
 permalink: /about/
-icon: heart
 ---
 
-* content
-{:toc}
 
 ## 关于我
 
