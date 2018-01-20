@@ -19,9 +19,9 @@ permalink: /about/
 
 热爱嵌入式开发，并著有：《ARM程序分析与设计》<http://product.dangdang.com/20177318.html>。
 
-的生活理念：不畏过去，不迎未来，活在当下。
+生活理念：让别人快乐，也让自己快乐！
 
-工作理念：纸上得来终觉浅 绝知此事要躬行。Just Do It！
+工作理念：纸上得来终觉浅 绝知此事要躬行！
 
 目前就职IBM Cloud Lab，测试Leader
 
@@ -31,7 +31,7 @@ permalink: /about/
 * email：840814120@qq.com
 * 微信： micro9229
 * 微信公众号： openstacks
-* Blog：cloudcome.net 
+* Blog：https://openstacks.github.io
 
 ## 友情链接
 
