@@ -1,67 +1,121 @@
-markdown: redcarpet
-redcarpet:
-    extensions: [ "fenced_code_blocks", "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
+title: 漠然
+author: 漠然
+subtitle: "Nothing is impossible to a willing heart!"
+description: "十字路口,繁华街头......"
+keywords: 漠然
+url: "https://mritd.me"
+date_format: "ordinal"
+favicon: /favicon.ico
+timezone: Asia/Shanghai
+encoding: "utf-8"
+source_code: https://github.com/mritd/mritd.github.io
+side_bar_repo_limit: 5
 
-# Site settings
-title: Cloud
-brief-intro: 云端散仙且行且悟
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://openstacks.github.io" # the base hostname & protocol for your site
+# ---------------- #
+#      Author      #
+# ---------------- #
+organization: Gozap, Inc.
+organization_url: https://www.longdai.com
+location: Beijing, China
+email: mritd1234@gmail.com
 
-permalink: /:year/:month/:day/:title/
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: 首页
 
-# other links
-twitter_username: micro9229
-facebook_username: micro9229
-github_username:  openstacks
-email: 840814120@qq.com
-weibo_username: micro9229
-zhihu_username: micro9229
-linkedIn_username: clouds
-dribbble_username:
+  -
+    href: /categories/
+    label: 分类
 
-description_footer: 似水流年！
+  -
+    href: /wiki/
+    label: 维基
+  
 
-# comments
-# two ways to comment, only choose one, and use your own short name
-# 两种评论插件，选一个就好了，使用自己的 short_name
-duoshuo_shortname: #hygblog
-disqus_shortname: openstacks
+  -
+    href: /open-source/
+    label: 开源
 
-# statistic analysis 统计代码
-# 百度统计 id，将统计代码替换为自己的百度统计id，即
-# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
-# xxxxx字符串
-baidu_tongji_id: cf8506e0ef223e57ff6239944e5d46a4
-google_analytics_id: UA-72449510-4 # google 分析追踪id
+  -
+    href: /links/
+    label: 链接
 
-# Build settings
+  -
+    href: /about/
+    label: 关于
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
 markdown: kramdown
-
 kramdown:
-  input: GFM
-  extensions:
-    - autolink
-    - footnotes
-    - smart
-  syntax_highlighter: rouge
+    input: GFM
+highlighter: rouge
+paginate: 8
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
+permalink: /:year/:month/:day/:title/
+gems:
+    - rouge
+    - jekyll-sitemap
+#    - jekyll-seo-tag
+#    - jekyll-html-pipeline
+    - jekyll-paginate
+    - jekyll-feed
+    - jemoji
+#    - jekyll-mentions
+    - jekyll-github-metadata
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
 
-# port
-# port: 1234
+# ---------------- #
+#      Socials     #
+# ---------------- #
+github_username: mritd
+#douban_username: mritd
+facebook_username: mritd1234
+#weibo_username: mritd
+#zhihu_username: mritd
+twitter_username: mritd
 
-# url
-category_dir: category/
-tag_dir: tag/
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus
+comments_provider: disqus
+# !!!重要!!! 请修改下面两个用户名为你自己申请的
+# !!!Important!!! Please modify usernames below to yours
+disqus_username: mritd
 
-# excerpt
-excerpt_separator: "\n\n\n\n"
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+google:
+    analytics_id: UA-82387173-1
 
-# paginate
-gems: [jekyll-paginate]
-paginate: 6
+# ---------------- #
+#      Datas       #
+# ---------------- #
+skill_software_keywords: [Java, shell, Docker,Linux]
+skill_mobile_app_keywords: [Java]
+#skill_windows_keywords: []
+
+# ---------------- #
+# Github metadata  #
+# ---------------- #
+repository: mritd/mritd.github.io
