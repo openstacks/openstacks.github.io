@@ -39,6 +39,17 @@ permalink: /about/
 
 [Linux performance](http://www.brendangregg.com/linuxperf.html)
 
-## Comments
+## See You Again
 
-{% include comments.html %}
+See You Again
+
+---
+
+![hexo_about_me_logo](/assets/51HAvkjRIzL._AA190_.jpg)
+
+---
+
+<audio  autoplay="autoplay">
+  <source src="https://mritd.b0.upaiyun.com/markdown/music_see_you_again.mp3" type="audio/mpeg" />
+Your browser does not support the audio element.
+</audio>
