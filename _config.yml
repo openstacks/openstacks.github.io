@@ -1,11 +1,11 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-title: 云端散仙且行切悟
+title: 云端散仙且行且悟
 author: yuxing
 subtitle: "You never fail, until you give up!"
 description: "似水流年！......"
-keywords: cloudcome
+keywords: cloudcome,openstacks
 url: "https://openstacks.github.io"
 date_format: "ordinal"
 favicon: /favicon.ico
